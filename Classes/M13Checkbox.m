@@ -464,5 +464,15 @@
     [super cancelTrackingWithEvent:event];
 }
 
++ (M13Checkbox *)kabblerRadioButton
+{
+    M13Checkbox *checkBox = [[M13Checkbox alloc] initWithFrame:CGRectMake(0, 0, M13CheckboxDefaultHeight, M13CheckboxDefaultHeight) title:nil checkHeight:M13CheckboxDefaultHeight];
+    checkBox.strokeWidth = 1.0f;
+    checkBox.radius = 10.f;
+    checkBox.strokeColor = [UIColor colorWithRed:42/255.0 green:55/255.0 blue:89/255.0 alpha:1.0f];
+    checkBox.checkColor = [UIColor colorWithRed:239/255.0 green:84/255.0 blue:61/255.0 alpha:1.0f];
+    [checkBox autoFitWidthToText];
+    return checkBox;
+}
 @end
 

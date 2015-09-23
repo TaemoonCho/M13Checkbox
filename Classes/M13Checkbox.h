@@ -155,6 +155,8 @@ typedef NS_ENUM(NSInteger, M13CheckboxAlignment) {
  */
 - (UIBezierPath *)getDefaultShape;
 
++ (M13Checkbox *)kabblerRadioButton;
+
 /**@name Appearance*/
 /**
  Wether or not to draw the check box flat, without a glossy overlay.

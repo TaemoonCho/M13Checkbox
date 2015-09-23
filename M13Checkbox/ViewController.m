@@ -95,17 +95,25 @@
     radius.frame = CGRectMake(25, unchecked.frame.origin.y + unchecked.frame.size.height + 8, radius.frame.size.width, radius.frame.size.height);
     [self.view addSubview:radius];
     
-    //Disabled
-    M13Checkbox *disabled = [[M13Checkbox alloc] initWithTitle:@"Disabled"];
-    disabled.enabled = NO;
-    disabled.frame = CGRectMake(25, radius.frame.origin.y + radius.frame.size.height + 8, disabled.frame.size.width, disabled.frame.size.height);
-    [self.view addSubview:disabled];
+//    //Disabled
+//    M13Checkbox *disabled = [[M13Checkbox alloc] initWithTitle:@"Disabled"];
+//    disabled.enabled = NO;
+//    disabled.frame = CGRectMake(25, radius.frame.origin.y + radius.frame.size.height + 8, disabled.frame.size.width, disabled.frame.size.height);
+//    [self.view addSubview:disabled];
+    
+    M13Checkbox *kabblerButton = [M13Checkbox kabblerRadioButton];
+    CGRect frame = kabblerButton.frame;
+    frame.origin.x = 25;
+    frame.origin.y = radius.frame.origin.y + radius.frame.size.height + 8;
+    [kabblerButton setFrame:frame];
+    [self.view addSubview:kabblerButton];
+    [kabblerButton addTarget:self action:@selector(checkChangedValue:) forControlEvents:UIControlEventTouchUpInside];
     
     //Disabled Checked
     M13Checkbox *disabledChecked = [[M13Checkbox alloc] initWithTitle:@"Disabled Checked"];
     disabledChecked.enabled = NO;
     [disabledChecked setCheckState:M13CheckboxStateChecked];
-    disabledChecked.frame = CGRectMake(25, disabled.frame.origin.y + disabled.frame.size.height + 8, disabledChecked.frame.size.width, disabledChecked.frame.size.height);
+    disabledChecked.frame = CGRectMake(25, kabblerButton.frame.origin.y + kabblerButton.frame.size.height + 8, disabledChecked.frame.size.width, disabledChecked.frame.size.height);
     [self.view addSubview:disabledChecked];
     
     //Custom Frame + Multiline text
@@ -122,7 +130,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)checkChangedValue:(id)sender
+- (void)checkChangedValue:(M13Checkbox *)sender
 {
     NSLog(@"Changed Value");
 }
