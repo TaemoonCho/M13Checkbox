@@ -471,6 +471,7 @@
     checkBox.radius = 10.f;
     checkBox.strokeColor = [UIColor colorWithRed:42/255.0 green:55/255.0 blue:89/255.0 alpha:1.0f];
     checkBox.checkColor = [UIColor colorWithRed:239/255.0 green:84/255.0 blue:61/255.0 alpha:1.0f];
+    checkBox.tintColor = [UIColor clearColor];
     [checkBox autoFitWidthToText];
     return checkBox;
 }
